@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/myspotify)](https://CRAN.R-project.org/package=myspotify)
 <!-- badges: end -->
 
-The goal of myspotify is to ...
+The goal of myspotify is to to read personal Spotify data and complete a series of analyses. Spotify is a popular music and podcast streaming app globally.
 
 ## Installation
 
