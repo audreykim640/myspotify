@@ -14,7 +14,6 @@ test_check("myspotify")
 library(tidyverse)
 
 
-
 most_played_artist <- function(temp){
   sorted_table <- temp %>%
     count(master_metadata_album_artist_name) %>%
