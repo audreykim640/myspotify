@@ -11,13 +11,22 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/myspotify)](https://CRAN.R-project.org/package=myspotify)
 <!-- badges: end -->
 
-The goal of myspotify is to to read personal Spotify data and complete a
-series of analyses. Spotify is a popular music and podcast streaming app
-globally.
+The goal of `myspotify` is to to read personal Spotify data and complete
+a series of analyses. Spotify is a popular music and podcast streaming
+app globally.
 
 ## Purpose
 
+Spotify, a popular music streaming platform, offers users the option to
+download their personal usage history data. `myspotify` seeks to provide
+tools to allow users to read and visualize their data to learn more
+about their listening habits. It functions similarly to “Spotify
+Wrapped,” a personalized summary that Spotify releases annually.
+
 ## Target Audience
+
+Open to all Spotify users willing to wait a few days to receive their
+data! (Account type doesn’t matter.)
 
 ## Installation
 
@@ -29,38 +38,10 @@ You can install the development version of myspotify from
 devtools::install_github("audreykim640/myspotify")
 ```
 
-## Example
+## Project phase 3 proposal
 
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-# library(myspotify)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+We propose to expand this package to include more functions that allow
+users to take a deeper dive into their listening habits with
+visualizations and summary statistics: e.g., more customization in
+existing functions, viewing top artists/consumption habits, habits over
+time, patterns in listening habits.
