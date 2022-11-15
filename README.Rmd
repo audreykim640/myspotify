@@ -41,4 +41,4 @@ devtools::install_github("audreykim640/myspotify")
 
 ## Project phase 3 proposal
 
-We propose e
+We propose to expand this package to include more functions that allow users to take a deeper dive into their listening habits with visualizations and summary statistics: e.g., more customization in existing functions, viewing top artists/consumption habits, habits over time, patterns in listening habits. 
