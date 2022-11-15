@@ -5,7 +5,7 @@
 #' and interaction with given songs
 #'
 #' @format ## `extended_example`
-#' A data frame with 7,240 rows and 60 columns:
+#' A data frame with 10,835 rows and 7 columns:
 #' \describe{
 #'   \item{ts}{Time stamp (date and time in Coordinated Universal Time) of song end}
 #'   \item{ms_played}{Number of milliseconds played of the song}
