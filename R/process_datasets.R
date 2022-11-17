@@ -7,7 +7,7 @@
 #' @format ## `extended_example`
 #' A data frame with 10,835 rows and 7 columns:
 #' \describe{
-#'   \item{ts}{Time stamp (date and time in Coordinated Universal Time) of song end}
+#'   \item{ts}{POSIXct class time stamp (date and time in Coordinated Universal Time) of song end}
 #'   \item{ms_played}{Number of milliseconds played of the song}
 #'   \item{song}{Name of the song played}
 #'   \item{artist}{Artist of the song played}

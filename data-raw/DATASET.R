@@ -5,16 +5,22 @@ usethis::use_data(DATASET, overwrite = TRUE)
 # [Template above; actual code below]--------------------------
 
 ## code to prepare `extended_example` dataset goes here
+library(dplyr)
 extended_example <- jsonlite::fromJSON(txt = "data-raw/extended_example.json", flatten = TRUE) %>%
   rename(song = master_metadata_track_name,
          artist = master_metadata_album_artist_name,
          album = master_metadata_album_album_name) %>%
   select(ts, ms_played, song, artist, album, reason_start, reason_end) %>%
-  mutate(ts = as.POSIXct(ts, format = "%Y-%m-%dT%H:%M:%OSZ"))
+  tidyr::separate(col = ts, into = c("date", "time"), sep = "T") %>%
+  mutate(date = as.POSIXct(date, format = "%Y-%m-%d"),
+         time = as.POSIXct(substr(time, start = 1, stop = 8), format = "%H:%M:%S"),
+         time = lubridate::force_tz(time, tzone = "GMT"),
+         year = substr(date, 1, 4))
 
-  # separate(col = ts, into = c("date", "time"), sep = " ")
+ # mutate(ts = as.POSIXct(ts, format = "%Y-%m-%dT%H:%M:%OSZ"))
+
+  #
 #%>%
-  # mutate(date = as.Date(date), time = substr(as.POSIXct(substr(time,1,8), format = "%H:%M:%S"))
     # date = map(split(ts,"T")[1], time = split(ts,"T")[2])
          # ,
          # time = split(ts, "T")[1]
