@@ -13,7 +13,7 @@ library(ggplot2)
 #' @examples
 #' most_played_artist(extended_example)
 most_played_artist <- function(df){
-  sorted_table <- extended_data %>%
+  sorted_table <- df %>%
     count(artist) %>%
     arrange(desc(n)) %>%
     head(10)
