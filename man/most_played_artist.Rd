@@ -4,18 +4,17 @@
 \alias{most_played_artist}
 \title{Top 10 Played Artists and Bands}
 \usage{
-most_played_artist(extended_data)
+most_played_artist(df)
 }
 \arguments{
-\item{extended_data}{a data frame}
+\item{df}{Data frame of personal Spotify data}
 }
 \value{
-text and ggplot2 bar graph
+text displaying the top three artists and ggplot2 bar chart showing the top 10 listened artists in descending order
 }
 \description{
 Top 10 Played Artists and Bands
 }
 \examples{
 most_played_artist(extended_example)
-
 }
