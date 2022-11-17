@@ -1,8 +1,18 @@
 library(tidyverse)
 library(ggplot2)
 
-most_played_artist <- function(extended_example){
-  sorted_table <- extended_example %>%
+#' Top 10 Played Artists and Bands
+#'
+#' @param extended_data a data frame
+#'
+#' @return text and ggplot2 bar graph
+#' @export
+#'
+#' @examples
+#' most_played_artist(extended_data)
+#'
+most_played_artist <- function(extended_data){
+  sorted_table <- extended_data %>%
     count(artist) %>%
     arrange(desc(n)) %>%
     head(10)
@@ -10,7 +20,7 @@ most_played_artist <- function(extended_example){
   second_played <- sorted_table[2, 1]
   third_played <- sorted_table[3, 1]
   print(paste("Your most played artist of all time is ", most_played,
-              "! Followed by ", second_played, " and ", third_played,  sep=""))
+              "! Followed by (the)", second_played, " and ", third_played,  sep=""))
   plot<-ggplot(data=sorted_table, aes(x=reorder(artist,-n), y=n)) +
     geom_bar(stat="identity", fill="blue") + xlab("Artist") + ylab("Number of Streams of All Time")
   plot
