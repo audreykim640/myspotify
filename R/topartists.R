@@ -16,4 +16,3 @@ most_played_artist <- function(extended_example){
   plot
 }
 most_played_artist(extended_example)
-
