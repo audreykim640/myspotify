@@ -9,7 +9,7 @@ library(ggplot2)
 #' @export
 #'
 #' @examples
-#' most_played_artist(extended_data)
+#' most_played_artist(extended_example)
 #'
 most_played_artist <- function(extended_data){
   sorted_table <- extended_data %>%
@@ -25,4 +25,4 @@ most_played_artist <- function(extended_data){
     geom_bar(stat="identity", fill="blue") + xlab("Artist") + ylab("Number of Streams of All Time")
   plot
 }
-most_played_artist(extended_example)
+# most_played_artist(extended_example)
