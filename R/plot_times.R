@@ -22,11 +22,10 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
       filter(year %in% years)
   }
 
-  bools <- years %in% df$year
-  index <- which(bools == FALSE)
-  yearsDNE <- years[index]
-  warning(paste("Data from", yearsDNE, "not shown (does not exist).\n  "))
-
+  yearsDNE <- DNE_in(baseline = df$year, checkfor = years)
+  if(length(yearsDNE) != 0) {
+    warning(paste("Data from year", yearsDNE, "not shown (does not exist).\n  "))
+  }
 
   # for bool in check, if false, return warning
 
