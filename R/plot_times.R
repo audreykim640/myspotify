@@ -16,7 +16,6 @@
 #'
 #' plot_times(df, targetTZ = "EST", years = 2019) +
 #'    labs(subtitle = "from 2019")
-
 plot_times <- function(df, targetTZ = "UTC", years = NULL) {
   if(!is.null(years)) {
     df <- df %>%
