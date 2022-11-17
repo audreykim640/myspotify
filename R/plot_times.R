@@ -23,14 +23,16 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
   }
 
   bools <- years %in% df$year
-  which(bools == FALSE)
-  map[bools]
+  index <- which(bools == FALSE)
+  yearsDNE <- years[index]
+  warning(paste("Data from", yearsDNE, "not shown (does not exist).\n  "))
+
 
   # for bool in check, if false, return warning
 
-  map(years %in% df$year,
-      function(x) if(x == FALSE)
-      {warning(paste("Data does not exist for years requested."))})
+  # map(years %in% df$year,
+  #     function(x) if(x == FALSE)
+  #     {warning(paste("Data does not exist for years requested."))})
 
   # attempt tryCatch for the code chunk below
   # NEED TRYCATCH FOR INCORRECT DATAFRAME
