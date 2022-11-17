@@ -6,7 +6,8 @@
 #'
 #' @return ggplot2 bar chart of listening habits throughout the 24-hour day
 #' @export
-#' @import ggplot2, dplyr
+#' @import ggplot2
+#' @import dplyr
 #'
 #' @examples
 #' df <- myspotify$extended_example
@@ -22,21 +23,15 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
       filter(year %in% years)
   }
 
-  check <- years %in% df$year
-  check
+  bools <- years %in% df$year
+  which(bools == FALSE)
+  map[bools]
 
   # for bool in check, if false, return warning
 
-  map(check, function(x) if(x == FALSE) {warning("This is false")})
-
-  # for (useryear in years) {
-  #   if useryear !exists in dfyears {
-  #     warning(useryear not used)
-  #   }
-  # }
-
-  # years %>%
-  #   map(ifelse(function(x) !(x %in% df$year), NULL, warning(paste(x, "not used"))))
+  map(years %in% df$year,
+      function(x) if(x == FALSE)
+        {warning(paste("Data does not exist for years requested."))})
 
   # attempt tryCatch for the code chunk below
   # NEED TRYCATCH FOR INCORRECT DATAFRAME
@@ -56,7 +51,7 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
     theme(legend.position = "none")
 }
 
-plot_times(extended_example, targetTZ = "EST", years = c(20009))
+plot_times(extended_example, targetTZ = "EST", years = c(2019, 20009))
 
 # trends for when you listened to each artist over time
 
