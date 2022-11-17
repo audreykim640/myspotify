@@ -11,7 +11,7 @@
 #' @examples
 plot_dates <- function(df, plottype) {
   dates <- mydata %>%
-    group_by(date) %>%
+    # group_by(date) %>%
     summarize(count = n())
 
   plot <- ggplot(dates, aes(x = date, y = count)) +
