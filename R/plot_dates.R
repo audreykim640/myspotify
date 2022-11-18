@@ -1,38 +1,45 @@
 #' Plot number of listens per day over time
 #'
-#' @param df
-#' @param plottype
+#' @param df Cleaned dataframe (using myspotify::read_file()) of Spotify listening history
+#' @param plottype Type of plot to produce: can be bar (default) or line
 #'
-#' @return
+#' @return ggplot2 plot of listening habits in songs per day over
 #' @export
 #' @import ggplot2
 #' @import dplyr
 #'
 #' @examples
-plot_dates <- function(df, plottype) {
-  dates <- mydata %>%
-    # group_by(date) %>%
+plot_dates <- function(df, interval = "month", plottype = "bar") {
+  if(interval %in% c("day", "month")) {
+    intervalyr <- paste(interval, "year", sep = "")
+  } else if (interval == "year") {
+    intervalyr <- interval
+  } else {
+    stop(paste("Unrecognized time interval '", interval, "'. Please select 'day', 'month', or 'year'.",
+               sep = ""))
+  }
+
+  dates <- df %>%
+    group_by(!! sym(intervalyr)) %>%
     summarize(count = n())
 
-  plot <- ggplot(dates, aes(x = date, y = count)) +
-    scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
-                 limit=c(as.Date("2020-01-01"),as.Date("2022-02-11"))
-    ) +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+  plot <- ggplot(dates, aes(x = !! sym(intervalyr), y = count)) +
+    scale_x_datetime(date_breaks = "6 months", date_labels = "%b %Y") +
+    labs(title = paste("Songs per", interval, "over time"),
+         x = str_to_title(interval), y = "Number of songs played") +
+    theme_minimal()
 
   if (plottype == "line") {
     plot + geom_line()
-  } else if (plottype == "bar") {
-    plot + geom_bar()
+  } else {
+    plot + geom_col(aes(fill=count)) +
+      theme(legend.position = "none")
   }
 }
 
-# map(dates, class)
+# axis labels are janky
 
-# make customization by what to break on for the x axis
-# and for start/end dates
 
-# trends for when you listened to each artist over time
 
 
 
