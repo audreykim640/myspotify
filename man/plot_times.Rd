@@ -24,6 +24,6 @@ df <- myspotify$extended_example
 
 plot_times(df, targetTZ = "EST", years = c(2017, 2019))
 
-plot_times(df, targetTZ = "EST", years = 2019) +
+plot_times(df, targetTZ = "Africa/Tripoli", years = 2019) +
    labs(subtitle = "from 2019")
 }

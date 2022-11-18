@@ -14,9 +14,14 @@
 #'
 #' plot_times(df, targetTZ = "EST", years = c(2017, 2019))
 #'
-#' plot_times(df, targetTZ = "EST", years = 2019) +
+#' plot_times(df, targetTZ = "Africa/Tripoli", years = 2019) +
 #'    labs(subtitle = "from 2019")
 plot_times <- function(df, targetTZ = "UTC", years = NULL) {
+  if(length(DNE_in(colnames(df), c("time", "year"))) != 0) {
+    stop("Columns 'time' and 'year' needed.
+         Try using 'myspotify::read_file()' for formatting.")
+  }
+
   if(!is.null(years)) {
     df <- df %>%
       filter(year %in% years)
@@ -27,21 +32,21 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
     warning(paste("Data from year", yearsDNE, "not shown (does not exist).\n  "))
   }
 
-  # for bool in check, if false, return warning
+  # DOESN'T REFRESH AFTER THERE'S AN ISSUE
+  tryCatch(
+    expr = {df <- df %>%
+      mutate(time = format(time, tz = targetTZ))},
 
-  # map(years %in% df$year,
-  #     function(x) if(x == FALSE)
-  #     {warning(paste("Data does not exist for years requested."))})
-
-  # attempt tryCatch for the code chunk below
-  # NEED TRYCATCH FOR INCORRECT DATAFRAME
+    warning = function(W) {
+      warning("Times in plot reflect UTC timezone. x-axis label may be misleading.")
+    }
+  )
 
   df <- df %>%
-    mutate(local = format(time, tz = targetTZ),
-           local = format(trunc(as.POSIXct(local), "hour")),
-           local = as.POSIXct(local))
+    mutate(time = format(trunc(as.POSIXct(time), "hour")),
+           time = as.POSIXct(time))
 
-  ggplot(df, aes(x = local)) +
+  ggplot(df, aes(x = time)) +
     geom_bar(aes(fill=..count..)) +
     scale_x_datetime(date_breaks = "3 hours", date_labels = "%I%P") +
     labs(title = "Listening activity throughout the day",
@@ -50,9 +55,3 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
     theme_minimal() +
     theme(legend.position = "none")
 }
-
-# plot_times(extended_example, targetTZ = "EST", years = c(2019, 20009))
-
-# trends for when you listened to each artist over time
-
-# needs warning/error for unknown time zones and nonexistent years
