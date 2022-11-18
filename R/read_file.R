@@ -7,7 +7,7 @@
 #' @import dplyr
 #' @import jsonlite
 #'
-#' @examples read_JSfile()
+#' @examples read_file()
 readfile <- function(filepath) {
   jsonlite::fromJSON(txt = filepath, flatten = TRUE) %>%
     rename(song = master_metadata_track_name,
