@@ -16,5 +16,6 @@ dataframe object with select columns
 Read-in Spotify JSON data file
 }
 \examples{
-read_file()
+read_file("my_spotify_data/MyData/endsong.json")
+
 }

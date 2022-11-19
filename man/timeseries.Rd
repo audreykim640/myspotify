@@ -4,10 +4,22 @@
 \alias{timeseries}
 \title{Plot number of listens over time}
 \usage{
-timeseries(df, interval = "month", plottype = "bar")
+timeseries(
+  df,
+  interval = "month",
+  limits = c(min(df$datetime), max(df$datetime)),
+  breaks = "1 year",
+  plottype = "bar"
+)
 }
 \arguments{
 \item{df}{Cleaned dataframe (using myspotify::read_file()) of Spotify listening history}
+
+\item{interval}{Time interval to round dates to ('day', 'month', or 'year')}
+
+\item{limits}{Date-time limits for the x-axis}
+
+\item{breaks}{Time interval to set x-axis label breaks at}
 
 \item{plottype}{Type of plot to produce: can be bar (default) or line}
 }
@@ -16,4 +28,15 @@ ggplot2 plot of listening habits in songs per day over
 }
 \description{
 Plot number of listens over time
+}
+\examples{
+df <- myspotify$extended_example
+t <- c("2021-01-01 00:00:00", "2022-01-01 00:00:00")
+
+timeseries(df, interval = "month", limits = t, breaks = "3 months")
+
+timeseries(df, interval = "day", breaks = "3 months", plottype = "line") +
+   theme(axis.text.x = element_text(angle = 270, vjust = 0.5, hjust=1))
+
+
 }

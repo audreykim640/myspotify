@@ -1,13 +1,15 @@
 
 #' Example of personal data (extended version) downloaded from Spotify
 #'
-#' Listening history data from Spotify including song/podcast information
+#' Listening history data from Spotify including song information
 #' and interaction with given songs
 #'
 #' @format ## `extended_example`
-#' A data frame with 10,835 rows and 7 columns:
+#' A data frame with 10,835 rows and 9 columns:
 #' \describe{
 #'   \item{ts}{POSIXct class time stamp (date and time in Coordinated Universal Time) of song end}
+#'   \item{time}{POSIXct class time stamp in Coordinated Universal Time of song end,
+#'               derived from datetime with arbitrary Y-M-D for when only time is of interest}
 #'   \item{ms_played}{Number of milliseconds played of the song}
 #'   \item{song}{Name of the song played}
 #'   \item{artist}{Artist of the song played}
@@ -17,3 +19,5 @@
 #' }
 #' @source Downloaded from personal account Privacy Settings on <https://spotify.com>
 "extended_example"
+
+# \item{date}{Date class record of date of song end, derived from datetime}
