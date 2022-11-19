@@ -2,6 +2,7 @@
 #'
 #' @param df Cleaned dataframe (using myspotify::read_file()) of Spotify listening history
 #' @param interval Time interval to round dates to ('day', 'month', or 'year')
+#' @param limits Date-time limits for the x-axis
 #' @param breaks Time interval to set x-axis label breaks at
 #' @param plottype Type of plot to produce: can be bar (default) or line
 #'
@@ -9,32 +10,28 @@
 #' @export
 #' @import ggplot2
 #' @import dplyr
+#' @importFrom stringr str_to_title
+#' @importFrom lubridate floor_date
 #'
 #' @examples
 #' df <- myspotify$extended_example
-#' timeseries(df, interval = "month", breaks = "3 months") +
-#'     theme(axis.text.x = element_text(angle = 270, vjust = 0.5, hjust=1))
+#' t <- c("2021-01-01 00:00:00", "2022-01-01 00:00:00")
+#' timeseries(df, interval = "month", limits = t, breaks = "3 months")
 #'
-#' timeseries(df, interval = "day", breaks = "3 months", plottype = "line")
+#' timeseries(df, interval = "day", breaks = "3 months", plottype = "line") +
+#'    theme(axis.text.x = element_text(angle = 270, vjust = 0.5, hjust=1))
 #'
-timeseries <- function(df, interval = "month", breaks = "1 year", plottype = "bar") {
-  if(interval %in% c("day", "month")) {
-    intervalyr <- paste(interval, "year", sep = "")
-  } else if (interval == "year") {
-    intervalyr <- interval
-  } else {
-    stop(paste("Unrecognized time interval '", interval, "'. Please select 'day', 'month', or 'year'.",
-               sep = ""))
-  }
-
+#'
+timeseries <- function(df, interval = "month", limits = c(min(df$ts), max(df$ts)),
+                       breaks = "1 year", plottype = "bar") {
   # df for plotting -- "round" each date to desired interval
   dates <- df %>%
-    group_by(date = lubridate::floor_date(date, interval)) %>%
+    group_by(ts = lubridate::floor_date(ts, interval)) %>%
     summarize(count = n())
 
   # core plotting shenanigans
-  plot <- ggplot(dates, aes(x = date, y = count)) +
-    scale_x_date(date_breaks = breaks, date_labels = "%b %Y") +
+  plot <- ggplot(dates, aes(x = ts, y = count)) +
+    scale_x_datetime(date_breaks = breaks, date_labels = "%b %Y", limits = as.POSIXct(limits)) +
     labs(title = paste("Songs per", interval, "over time"),
          x = stringr::str_to_title(interval), y = "Number of songs played") +
     theme_minimal()
