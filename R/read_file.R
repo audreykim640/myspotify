@@ -19,7 +19,5 @@ readfile <- function(filepath) {
            time = as.POSIXct(substr(time, start = 1, stop = 8), format = "%H:%M:%S"),
            time = lubridate::force_tz(time, tzone = "GMT"),
            year = lubridate::year(date),
-           month = lubridate::month(date),
-           dayyear = date,
-           monthyear = paste(lubridate::month(date), lubridate::year(date)))
+           month = factor(month.name[lubridate::month(date)],levels=month.name))
 }
