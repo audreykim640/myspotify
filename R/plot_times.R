@@ -38,7 +38,7 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
       mutate(time = format(time, tz = targetTZ))},
 
     warning = function(W) {
-      warning("Times in plot reflect UTC timezone. x-axis label may be misleading.")
+      warning("Plot reflects UTC timezone. x-axis label may be misleading.")
     }
   )
 
