@@ -5,9 +5,13 @@
 #' @return dataframe object with select columns
 #' @export
 #' @import dplyr
-#' @import jsonlite
+#' @import lubridate
+#' @importFrom jsonlite fromJSON
+#' @importFrom tidyr separate
 #'
-#' @examples read_file()
+#' @examples
+#' read_file("my_spotify_data/MyData/endsong.json")
+#'
 readfile <- function(filepath) {
   jsonlite::fromJSON(txt = filepath, flatten = TRUE) %>%
     rename(song = master_metadata_track_name,
