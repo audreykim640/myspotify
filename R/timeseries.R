@@ -4,7 +4,7 @@
 #' @param interval Time interval to round dates to ('day', 'month', or 'year')
 #' @param limits Date-time limits for the x-axis
 #' @param breaks Time interval to set x-axis label breaks at
-#' @param plottype Type of plot to produce: can be bar (default) or line
+#' @param geom Type of plot to produce: can be bar (default) or line
 #'
 #' @return ggplot2 plot of listening habits in songs per day over
 #' @export
@@ -23,7 +23,7 @@
 #'
 #'
 timeseries <- function(df, interval = "month", limits = c(min(df$ts), max(df$ts)),
-                       breaks = "1 year", plottype = "bar") {
+                       breaks = "1 year", geom = "bar") {
   # df for plotting -- "round" each date to desired interval
   dates <- df %>%
     group_by(ts = lubridate::floor_date(ts, interval)) %>%
