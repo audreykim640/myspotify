@@ -28,7 +28,7 @@ Spotify, a popular music streaming platform, offers users the option to download
 
 ## Target Audience
 
-Open to all Spotify users who are interested in some visual breakdowns of their listening habits and who are willing to wait a few days to receive their data! (Account type doesn't matter.)
+Open to all Spotify users who are interested in some visual breakdowns of their listening habits and who are willing to wait a few days to receive their data (Account type doesn't matter). Users can request their data by using the Download Your Data tool on the Privacy Settings section of their account page or contacting Spotify directly (privacy@spotify.com). Users will receive an email where they can download a ZIP file of their personal data. 
 
 ## Installation
 
@@ -41,7 +41,7 @@ devtools::install_github("audreykim640/myspotify")
 
 ## Project phase 3 proposal
 
-We propose to expand this package to include more functions that allow users to take a deeper dive into their listening habits with visualizations and summary statistics: e.g., more customization in existing functions, viewing top artists/consumption habits, habits over time, patterns in listening habits. 
+We propose to expand this package to include more functions that allow users to take a deeper dive into their listening habits with visualizations and summary statistics: e.g., more customization in existing functions, viewing top artists/consumption habits, habits over time, patterns in listening habits. We also wish to analyze data from a user's personalized library. 
 
 ## Note about testing
 
