@@ -1,5 +1,3 @@
-library(tidyverse)
-
 #' Most Skipped Songs of All Time
 #'
 #' @return text displaying the top three skipped songs
@@ -15,7 +13,7 @@ end_reason <- function(df){
     group_by(reason_end, artist) %>%
     count(song) %>%
     arrange(desc(n)) %>%
-    filter(reason_end == "fwdbtn") #finds the most number of songs skipped by forward button
+    filter(reason_end == "?fwdbtn") #finds the most number of songs skipped by forward button
   skipped1 <- sorted_table[1,3]
   artist1 <- sorted_table[1, 2]
   skipped2 <- sorted_table[2, 3]

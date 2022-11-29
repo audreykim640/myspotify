@@ -1,6 +1,3 @@
-library(tidyverse)
-library(ggplot2)
-
 #' Top 10 Played Artists and Bands
 #'
 #' @param df Data frame of personal Spotify data
