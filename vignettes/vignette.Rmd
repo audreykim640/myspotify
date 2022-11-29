@@ -29,4 +29,11 @@ original_width <- options("width")
 options(width=10000)
 ```
 
-The ``mypotify`` package contains functions analyzing any spotify user's data. For our examples we are using one of the creator's extended spotify data.
+## About `myspotify`
+The ``mypotify`` package contains functions analyzing any Spotify user's data. For our examples we are using one of the creator's extended Spotify data.
+
+## Inspiration
+Both of us love looking at our Spotify Wrapped at the end of the year. Spotify Wrapped is personalized feature where users can view basic statistics on their Spotify data and compare with friends and family. We have so much fun looking at it that we wished we can find more statistics on our data. We decided to create this package for all Spotify users to upload their data on RStudio and use our functions to get a deeper dive of their data.
+
+## Who Should Use this Package
+Everyone who has a Spotify account, free or premium, can use this package since Spotify must make every user's data available.
