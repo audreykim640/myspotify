@@ -1,0 +1,32 @@
+---
+title: "myspotify"
+author: "Beata Knecht and Audrey Kim"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{myspotify}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+css: report_styles.css
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 6, 
+  fig.height = 4.5,
+  warnings = FALSE,
+  errors = FALSE
+)
+```
+
+```{r setup, include=FALSE}
+library(myspotify)
+library(dplyr)
+library(ggplot2)
+# Saves old options and declares new one for vignette
+original_width <- options("width")
+options(width=10000)
+```
+
+The ``mypotify`` package contains functions analyzing any spotify user's data. For our examples we are using one of the creator's extended spotify data.
