@@ -7,9 +7,9 @@
 timeseries(
   df,
   interval = "month",
-  limits = c(min(df$datetime), max(df$datetime)),
+  limits = c(min(df$ts), max(df$ts)),
   breaks = "1 year",
-  plottype = "bar"
+  geom = "bar"
 )
 }
 \arguments{
@@ -21,7 +21,7 @@ timeseries(
 
 \item{breaks}{Time interval to set x-axis label breaks at}
 
-\item{plottype}{Type of plot to produce: can be bar (default) or line}
+\item{geom}{Type of plot to produce: can be bar (default) or line}
 }
 \value{
 ggplot2 plot of listening habits in songs per day over
@@ -32,7 +32,6 @@ Plot number of listens over time
 \examples{
 df <- myspotify$extended_example
 t <- c("2021-01-01 00:00:00", "2022-01-01 00:00:00")
-
 timeseries(df, interval = "month", limits = t, breaks = "3 months")
 
 timeseries(df, interval = "day", breaks = "3 months", plottype = "line") +

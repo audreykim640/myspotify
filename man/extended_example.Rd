@@ -9,7 +9,7 @@
 
 A data frame with 10,835 rows and 9 columns:
 \describe{
-\item{datetime}{POSIXct class time stamp (date and time in Coordinated Universal Time) of song end}
+\item{ts}{POSIXct class time stamp (date and time in Coordinated Universal Time) of song end}
 \item{time}{POSIXct class time stamp in Coordinated Universal Time of song end,
 derived from datetime with arbitrary Y-M-D for when only time is of interest}
 \item{ms_played}{Number of milliseconds played of the song}
@@ -28,7 +28,7 @@ Downloaded from personal account Privacy Settings on \url{https://spotify.com}
 extended_example
 }
 \description{
-Listening history data from Spotify including song/podcast information
+Listening history data from Spotify including song information
 and interaction with given songs
 }
 \keyword{datasets}
