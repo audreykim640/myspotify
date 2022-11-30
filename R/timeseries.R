@@ -26,14 +26,14 @@ timeseries <- function(df, interval = "month", limits = c(min(df$ts), max(df$ts)
                        breaks = "1 year", geom = "bar") {
   # df for plotting -- "round" each date to desired interval
   dates <- df %>%
-    group_by(ts = lubridate::floor_date(ts, interval)) %>%
+    group_by(ts = floor_date(ts, interval)) %>%
     summarize(count = n())
 
   # core plotting shenanigans
   plot <- ggplot(dates, aes(x = ts, y = count)) +
     scale_x_datetime(date_breaks = breaks, date_labels = "%b %Y", limits = as.POSIXct(limits)) +
     labs(title = paste("Songs per", interval, "over time"),
-         x = stringr::str_to_title(interval), y = "Number of songs played") +
+         x = str_to_title(interval), y = "Number of songs played") +
     theme_minimal()
 
   # reads user input for type of plot
