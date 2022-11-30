@@ -1,6 +1,6 @@
 #' Read-in Spotify JSON data file
 #'
-#' @param filepath File path string to where the endsong.json file is hosted
+#' @param filepath File path string to where the endsong.json (or endsong_X.json) file is hosted
 #'
 #' @return dataframe object with select columns
 #' @export
