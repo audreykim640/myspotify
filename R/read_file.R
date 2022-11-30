@@ -12,7 +12,7 @@
 #' @examples
 #' read_file("my_spotify_data/MyData/endsong.json")
 #'
-readfile <- function(filepath) {
+read_file <- function(filepath) {
     df <- fromJSON(txt = filepath, flatten = TRUE) %>%
     rename(song = master_metadata_track_name,
            artist = master_metadata_album_artist_name,
