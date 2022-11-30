@@ -20,7 +20,9 @@ most_played_artist <- function(df){
   print(paste("Your most played artist of all time is ", most_played,
               "! Followed by (the)", second_played, " and ", third_played,  sep=""))
   plot<-ggplot(data=sorted_table, aes(x=reorder(artist,-n), y=n)) +
-    geom_bar(stat="identity", fill="blue") + xlab("Artist") + ylab("Number of Streams of All Time")
+    geom_bar(stat="identity", fill="coral1") + xlab("Artist") + ylab("Number of Streams of All Time") +
+    theme(axis.text.x = element_text(angle = -90))+
+    theme(axis.title = element_text(face="bold"))
   plot
 }
 # most_played_artist(extended_example)
