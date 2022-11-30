@@ -10,7 +10,7 @@
 #' @importFrom tidyr separate
 #'
 #' @examples
-#' read_file("my_spotify_data/MyData/endsong.json")
+#' read_file("C:/Users/SophiaSmith/Desktop/my_spotify_data/MyData/endsong_4.json")
 #'
 read_file <- function(filepath) {
     df <- fromJSON(txt = filepath, flatten = TRUE) %>%
