@@ -36,4 +36,21 @@ The ``mypotify`` package contains functions analyzing any Spotify user's data. F
 Both of us love looking at our Spotify Wrapped at the end of the year. Spotify Wrapped is personalized feature where users can view basic statistics on their Spotify data and compare with friends and family. We have so much fun looking at it that we wished we can find more statistics on our data. We decided to create this package for all Spotify users to upload their data on RStudio and use our functions to get a deeper dive of their data.
 
 ## Who Should Use this Package
-Everyone who has a Spotify account, free or premium, can use this package since Spotify must make every user's data available.
+Everyone who has a Spotify account, free or premium, and with a curiosity to learn more about their data can use this package since Spotify must make every user's data available. 
+
+## What does the data look like?
+
+## What can we do with this data?
+
+## Example 1
+**Who are the top ten artists/bands?**
+
+```{r}
+most_played_artist(extended_example)
+```
+
+
+## Example 2
+**
+
+
