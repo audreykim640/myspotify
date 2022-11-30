@@ -17,3 +17,11 @@ Returns list of items in "checkfor" that do NOT exist in "baseline"
 \description{
 List matching -- return items that don't exist
 }
+\examples{
+
+checking <- c("apple", "banana", "clementine")
+for <- c("apple", "peach", "banana")
+DNE_in(checking, for)
+#> returns "peach"
+
+}
