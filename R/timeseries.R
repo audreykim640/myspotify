@@ -22,25 +22,25 @@
 #'    theme(axis.text.x = element_text(angle = 270, vjust = 0.5, hjust=1))
 #'
 #'
-timeseries <- function(df, interval = "month", limits = c(min(df$ts), max(df$ts)),
+timeseries <- function(df, interval = "month", limits = c(min(df$date), max(df$date)),
                        breaks = "1 year", geom = "bar") {
   # df for plotting -- "round" each date to desired interval
   dates <- df %>%
-    group_by(ts = floor_date(ts, interval)) %>%
+    group_by(date = floor_date(date, interval)) %>%
     summarize(count = n())
 
   # core plotting shenanigans
-  plot <- ggplot(dates, aes(x = ts, y = count)) +
+  plot <- ggplot(dates, aes(x = date, y = count)) +
     scale_x_datetime(date_breaks = breaks, date_labels = "%b %Y", limits = as.POSIXct(limits)) +
     labs(title = paste("Songs per", interval, "over time"),
          x = str_to_title(interval), y = "Number of songs played") +
     theme_minimal()
 
   # reads user input for type of plot
-  if (plottype == "line") {
-    plot + geom_line()
+  if (geom == "line") {
+    plot <- plot + geom_line()
   } else {
-    plot + geom_col(aes(fill=count)) +
+    plot <- plot + geom_col(aes(fill=count)) +
       theme(legend.position = "none")
   }
 }
