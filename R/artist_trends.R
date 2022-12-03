@@ -9,10 +9,9 @@
 #' @import ggplot2
 #'
 #' @examples
-#' df <- myspotify$extended_example
+
+#' artist_trends(myspotify::extended_example, num = 5)
 #'
-#' artist_trends(df, num = 5) +
-#' labs(subtitle = "Top 5")
 artist_trends <- function(df, num = 3) {
   df <- df %>%
     count(year, artist) %>%
