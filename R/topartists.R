@@ -8,7 +8,7 @@
 #' @import dplyr
 #'
 #' @examples
-#' most_played_artist(extended_example)
+#' most_played_artist(myspotify::extended_example)
 most_played_artist <- function(df){
   sorted_table <- df %>%
     count(artist) %>%

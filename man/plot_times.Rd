@@ -20,10 +20,10 @@ ggplot2 bar chart of listening habits throughout the 24-hour day
 Plot listening habits by time of day
 }
 \examples{
-df <- myspotify$extended_example
+df <- myspotify::extended_example
 
-plot_times(df, targetTZ = "EST", years = c(2017, 2019))
+plot_times(df, targetTZ = "EST", years = c(2019, 2022))
 
-plot_times(df, targetTZ = "Africa/Tripoli", years = 2019) +
-   labs(subtitle = "from 2019")
+plot_times(df, targetTZ = "Africa/Tripoli", years = 2020) +
+   ggplot2::labs(subtitle = "from 2019")
 }

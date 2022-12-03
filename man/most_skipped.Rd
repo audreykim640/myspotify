@@ -18,6 +18,6 @@ Dataframe of the most skipped songs and the number of skips per song
 Assessing number of skips by song feature
 }
 \examples{
-most_skipped(extended_example)
-most_skipped(extended_example, by = "artist")
+most_skipped(myspotify::extended_example)
+most_skipped(myspotify::extended_example, by = "artist")
 }

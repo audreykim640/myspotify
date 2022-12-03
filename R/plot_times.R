@@ -10,13 +10,23 @@
 #' @import dplyr
 #'
 #' @examples
-#' df <- myspotify$extended_example
+#' df <- myspotify::extended_example
 #'
-#' plot_times(df, targetTZ = "EST", years = c(2017, 2019))
+#' plot_times(df, targetTZ = "EST", years = c(2019, 2022))
 #'
-#' plot_times(df, targetTZ = "Africa/Tripoli", years = 2019) +
-#'    labs(subtitle = "from 2019")
+#' plot_times(df, targetTZ = "Africa/Tripoli", years = 2020) +
+#'    ggplot2::labs(subtitle = "from 2019")
 plot_times <- function(df, targetTZ = "UTC", years = NULL) {
+
+  # defining helper function
+  # checks for outer of overlap in lists
+  DNE_in <- function(baseline, checkfor) {
+    bools <- checkfor %in% baseline
+    index <- which(bools == FALSE)
+    itemsDNE <- checkfor[index]
+    itemsDNE
+  }
+
   if(length(DNE_in(colnames(df), c("time", "year"))) != 0) {
     stop("Columns 'time' and 'year' needed.
          Try using 'myspotify::read_file()' for formatting.")
@@ -47,11 +57,12 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
            time = as.POSIXct(time))
 
   ggplot(df, aes(x = time)) +
-    geom_bar(aes(fill=..count..)) +
+    geom_bar(aes(fill = after_stat(count))) +
     scale_x_datetime(date_breaks = "3 hours", date_labels = "%I%P") +
     labs(title = "Listening activity throughout the day",
          x = paste("Time of day in ", targetTZ, sep = ""),
          y = "Number of songs played") +
     theme_minimal() +
     theme(legend.position = "none")
+
 }

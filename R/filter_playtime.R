@@ -8,11 +8,11 @@
 #' @import dplyr
 #'
 #' @examples
-#' data <- myspotify$extended_example
+#' data <- myspotify::extended_example
 #'
-#' two_min <- data %>% filter_length(length = 2)
+#' two_min <- data %>% filter_playtime(length = 2)
 #'
-#' two_half_min <- filter_length(data, 2.5)
+#' two_half_min <- filter_playtime(data, 2.5)
 #'
 filter_playtime <- function(df, length = NULL) {
   if(!is.data.frame(df)) {

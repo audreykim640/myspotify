@@ -9,8 +9,8 @@
 #' @import dplyr
 #'
 #' @examples
-#' most_skipped(extended_example)
-#' most_skipped(extended_example, by = "artist")
+#' most_skipped(myspotify::extended_example)
+#' most_skipped(myspotify::extended_example, by = "artist")
 most_skipped <- function(df, by = "song"){
   sorted_table <- df %>%
     filter(reason_end == "fwdbtn") %>% #finds the most number of songs skipped by forward button

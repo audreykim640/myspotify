@@ -4,7 +4,7 @@
 \alias{read_file}
 \title{Read-in Spotify JSON data file}
 \usage{
-read_file(filepath)
+read_file(...)
 }
 \arguments{
 \item{filepath}{File path string to where the endsong.json (or endsong_X.json) file is hosted}
@@ -16,6 +16,7 @@ dataframe object with select columns
 Read-in Spotify JSON data file
 }
 \examples{
-read_file("C:/Users/SophiaSmith/Desktop/my_spotify_data/MyData/endsong_4.json")
+
+# not sure how to write function for this
 
 }

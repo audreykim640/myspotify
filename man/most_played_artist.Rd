@@ -16,5 +16,5 @@ text displaying the top three artists and ggplot2 bar chart showing the top 10 l
 Top 10 Played Artists and Bands
 }
 \examples{
-most_played_artist(extended_example)
+most_played_artist(myspotify::extended_example)
 }
