@@ -8,6 +8,6 @@ test_that("Num cols in extended_example", {
 
 test_that("Col names", {
   expect_equal(stringr::str_sort(names(extended_example)),
-               stringr::str_sort(c("ts","time","ms_played","song","artist","album","reason_start","reason_end")))
+               stringr::str_sort(c("date","year","time","ms_played","song","artist","album","reason_start","reason_end")))
 })
 
