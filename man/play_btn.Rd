@@ -7,7 +7,7 @@
 play_btn(df)
 }
 \arguments{
-\item{df}{}
+\item{df}{Cleaned dataframe (using myspotify::read_file()) of Spotify listening history}
 }
 \value{
 Dataframe of all the songs the user hit the "play button" to stream
@@ -16,5 +16,5 @@ Dataframe of all the songs the user hit the "play button" to stream
 Which Songs You Manually Pressed "Play Button" the Most
 }
 \examples{
-play_btn(extended_example)
+play_btn(myspotify::extended_example)
 }

@@ -16,21 +16,4 @@ extended_example <- jsonlite::fromJSON(txt = "data-raw/extended_example.json", f
          time = as.POSIXct(substr(ts, start = 11, stop = 18), format = "%H:%M:%S"),
          time = lubridate::force_tz(time, tzone = "GMT"))
 
-#year = lubridate::year(date)
-# tidyr::separate(col = ts, into = c("date", "time"), sep = "T") %>%
-#   mutate(time = as.POSIXct(substr(time, start = 1, stop = 8), format = "%H:%M:%S"),
-#date = as.Date(date, format = "%Y-%m-%d"), # should remain as.Date() for plot_dates() function
-#month = factor(month.name[lubridate::month(date)],levels=month.name)
- # mutate(ts = as.POSIXct(ts, format = "%Y-%m-%dT%H:%M:%OSZ"))
-
-  #
-#%>%
-    # date = map(split(ts,"T")[1], time = split(ts,"T")[2])
-         # ,
-         # time = split(ts, "T")[1]
-         # )
-
-         #, 12,20), "%h:%m:%s")) ## THIS ISN"T WORKING
-
-
 usethis::use_data(extended_example, overwrite = TRUE)

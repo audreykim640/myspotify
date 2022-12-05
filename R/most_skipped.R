@@ -1,3 +1,5 @@
+globalVariables(c("date","year","time","ms_played","song","artist","album","reason_start","reason_end"))
+
 #' Assessing number of skips by song feature
 #'
 #' @param df Cleaned dataframe (using myspotify::read_file) of Spotity listening history
