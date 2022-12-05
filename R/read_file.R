@@ -1,3 +1,5 @@
+globalVariables(names(my_extended_example))
+
 #' Read-in Spotify JSON data files
 #'
 #' @param ... Links or file path strings to where the endsong.json (or endsong_X.json) file is hosted, separated by commmas

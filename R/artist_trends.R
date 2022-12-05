@@ -1,3 +1,5 @@
+globalVariables(names(my_extended_example))
+
 #' Plot top artists over time
 #'
 #' @param df Cleaned dataframe (using myspotify::read_file()) of Spotify listening history

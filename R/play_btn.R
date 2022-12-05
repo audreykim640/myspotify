@@ -1,3 +1,5 @@
+globalVariables(names(my_extended_example))
+
 #' Which Songs You Manually Pressed "Play Button" the Most
 #'
 #' @param df Cleaned dataframe (using myspotify::read_file()) of Spotify listening history
