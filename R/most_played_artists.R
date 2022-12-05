@@ -1,4 +1,4 @@
-globalVariables(names(extended_example))
+globalVariables(c("date","year","time","ms_played","song","artist","album","reason_start","reason_end"))
 
 #' Top 10 Played Artists and Bands
 #'

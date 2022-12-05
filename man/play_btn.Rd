@@ -16,9 +16,5 @@ Dataframe of all the songs the user hit the "play button" to stream
 Which Songs You Manually Pressed "Play Button" the Most
 }
 \examples{
-<<<<<<< HEAD
 play_btn(myspotify::extended_example)
-=======
-play_btn(extended_example)
->>>>>>> 315295815c78610f0985b25d35eea1f70bed5073
 }
