@@ -1,15 +1,17 @@
 #' Top 10 Played Artists and Bands
 #'
-#' @param df Data frame of personal Spotify data
+#' @param df Cleaned dataframe (using myspotify::read_file()) of Spotify listening history
 #'
 #' @return text displaying the top three artists and ggplot2 bar chart showing the top 10 listened artists in descending order
 #' @export
 #' @import ggplot2
 #' @import dplyr
+#' @importFrom "stats" "reorder"
+#' @importFrom "utils" "head"
 #'
 #' @examples
-#' most_played_artist(myspotify::extended_example)
-most_played_artist <- function(df){
+#' most_played_artists(myspotify::extended_example)
+most_played_artists <- function(df){
   sorted_table <- df %>%
     count(artist) %>%
     arrange(desc(n)) %>%
