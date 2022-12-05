@@ -1,9 +1,10 @@
 Package: myspotify
-Title: What the Package Does (One Line, Title Case)
+Title: Visualize and Analyze Spotify Listening History
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+Authors@R: c(
+    person("Audrey", "Kim", , "audreykim640@gmail.com", role = c("aut", "cre")),
+    person("Beata", "Knecht", , "email@email.com", role = c("aut"))
+           )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Suggests: 
@@ -24,5 +25,7 @@ Imports:
     jsonlite,
     lubridate,
     stringr,
-    tidyr
+    tidyr,
+    purrr
 VignetteBuilder: knitr
+
