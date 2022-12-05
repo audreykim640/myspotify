@@ -1,6 +1,6 @@
-#' Read-in Spotify JSON data file
+#' Read-in Spotify JSON data files
 #'
-#' @param filepath File path string to where the endsong.json (or endsong_X.json) file is hosted
+#' @param ... Links or file path strings to where the endsong.json (or endsong_X.json) file is hosted, separated by commmas
 #'
 #' @return dataframe object with select columns
 #' @export
@@ -8,11 +8,11 @@
 #' @import lubridate
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr separate
-#' @importFrom purrr map
+#' @importFrom purrr map_dfr
 #'
 #' @examples
 #'
-#' # not sure how to write function for this
+#' read_file("https://raw.githubusercontent.com/audreykim640/myspotify/c23bf735f9f9fb150153eb51f161afe9e4414dc9/data-raw/extended_example.json")
 #'
 read_file <- function(...) {
   single_file <- function(filepath) {
@@ -30,6 +30,7 @@ read_file <- function(...) {
     df
   }
 
-  rbind(map(..., single_file))
+  list <- list(...)
+  map_dfr(list, single_file)
 
 }

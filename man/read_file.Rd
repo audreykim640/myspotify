@@ -2,21 +2,21 @@
 % Please edit documentation in R/read_file.R
 \name{read_file}
 \alias{read_file}
-\title{Read-in Spotify JSON data file}
+\title{Read-in Spotify JSON data files}
 \usage{
 read_file(...)
 }
 \arguments{
-\item{filepath}{File path string to where the endsong.json (or endsong_X.json) file is hosted}
+\item{...}{Links or file path strings to where the endsong.json (or endsong_X.json) file is hosted, separated by commmas}
 }
 \value{
 dataframe object with select columns
 }
 \description{
-Read-in Spotify JSON data file
+Read-in Spotify JSON data files
 }
 \examples{
 
-# not sure how to write function for this
+read_file("https://raw.githubusercontent.com/audreykim640/myspotify/c23bf735f9f9fb150153eb51f161afe9e4414dc9/data-raw/extended_example.json")
 
 }

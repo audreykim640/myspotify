@@ -35,7 +35,7 @@ t <- c("2021-01-01 00:00:00", "2022-01-01 00:00:00")
 timeseries(df, interval = "month", limits = t, breaks = "3 months")
 
 timeseries(df, interval = "day", breaks = "3 months", geom = "line") +
-   theme(axis.text.x = element_text(angle = 270, vjust = 0.5, hjust=1))
+   ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 270, vjust = 0.5, hjust=1))
 
 
 }
