@@ -1,4 +1,4 @@
-globalVariables(names(my_extended_example))
+globalVariables(names(extended_example))
 
 #' Assessing number of skips by song feature
 #'

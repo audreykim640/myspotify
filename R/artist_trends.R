@@ -1,4 +1,4 @@
-globalVariables(names(my_extended_example))
+globalVariables(names(extended_example))
 
 #' Plot top artists over time
 #'
