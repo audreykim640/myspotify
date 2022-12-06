@@ -8,6 +8,7 @@
 #' @import dplyr
 #'
 #' @examples
+#' library(dplyr)
 #' data <- myspotify::extended_example
 #'
 #' two_min <- data %>% filter_playtime(length = 2)
