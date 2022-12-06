@@ -18,5 +18,5 @@ dataframe of a list of all the songs a user streamed with that specific string i
 Search specific word or string in song name
 }
 \examples{
-search_word(myspotify::extended_example), "love")
+search_word(myspotify::extended_example, "love")
 }
