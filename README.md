@@ -44,7 +44,7 @@ You can install the development version of myspotify from
 ``` r
 # install.packages("devtools")
 devtools::install_github("audreykim640/myspotify")
-#> Skipping install of 'myspotify' from a github remote, the SHA1 (718a5452) has not changed since last install.
+#> Skipping install of 'myspotify' from a github remote, the SHA1 (beb97d14) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
@@ -75,7 +75,7 @@ in conjunction with all of the other functions in the package.
 artist_trends(extended_example)
 ```
 
-<img src="man/figures/README-examples pt 1-1.png" width="100%" />
+<img src="man/figures/README-examples_pt1-1.png" width="100%" />
 
 ``` r
 
@@ -86,7 +86,7 @@ extended_example %>%
   artist_trends()
 ```
 
-<img src="man/figures/README-examples pt 1-2.png" width="100%" />
+<img src="man/figures/README-examples_pt1-2.png" width="100%" />
 
 ``` r
 # Plot the top 5 most skipped songs
@@ -101,7 +101,7 @@ ggplot(skipped_songs, aes(x = song, y = skips)) +
   theme(axis.title = element_text(face="bold"))
 ```
 
-<img src="man/figures/README-examples pt 2-1.png" width="100%" />
+<img src="man/figures/README-examples_pt2-1.png" width="100%" />
 
 ``` r
 #Search for a specific word or phrase in a song name 
@@ -112,17 +112,17 @@ search_word(extended_example, "Christmas")
 #> 1 Cuddle Up, Cozy Down Christmas Dolly Parton A Holly Dolly Christmas
 #> 2                 Last Christmas        Wham!          LAST CHRISTMAS
 
-#Returns all songs streamed with "Christmas in the title
+# Returns all songs streamed with "Christmas" in the title
 ```
 
 ``` r
-#Make a plot of the top ten artists/bands you have streamed of all time
+# Make a plot of the top ten artists/bands you have streamed of all time
 
 most_played_artists(extended_example)
 #> [1] "Your most played artist of all time is Taylor Swift! Followed by (the)Bee Gees and Olivia Rodrigo"
 ```
 
-<img src="man/figures/README-examples pt-1.png" width="100%" />
+<img src="man/figures/README-examples_pt4-1.png" width="100%" />
 
 ## Note about testing
 

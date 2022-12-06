@@ -58,7 +58,7 @@ devtools::install_github("audreykim640/myspotify")
 -   Load your own!
     -   After loading the package and downloading your data from Spotify (instructions [here](https://github.com/audreykim640/myspotify/blob/main/vignettes/myspotify.Rmd)), run your data through the `read_file()` function:
 
-```{r example data download}
+```{r example_data_download}
 # example:
 # my_data <- read_file("workspace/my_spotify_data/myData/endsong_0.json",
 #                      "workspace/my_spotify_data/myData/endsong_1.json",
@@ -69,7 +69,7 @@ devtools::install_github("audreykim640/myspotify")
 
 ## Example data visualizations
 
-```{r examples pt 1}
+```{r examples_pt1}
 artist_trends(extended_example)
 
 # Spotify data by default includes all songs that started playing
@@ -79,7 +79,7 @@ extended_example %>%
   artist_trends()
 ```
 
-```{r examples pt 2}
+```{r examples_pt2}
 # Plot the top 5 most skipped songs
 skipped_songs <- extended_example %>% 
   most_skipped() %>% 
@@ -92,21 +92,19 @@ ggplot(skipped_songs, aes(x = song, y = skips)) +
   theme(axis.title = element_text(face="bold"))
 ```
 
-```{r examples pt 3}
+```{r examples_pt3}
 #Search for a specific word or phrase in a song name 
 #Returns a data frame
 
 search_word(extended_example, "Christmas")
 
-#Returns all songs streamed with "Christmas in the title
-
+# Returns all songs streamed with "Christmas" in the title
 ```
 
-```{r examples pt}
-#Make a plot of the top ten artists/bands you have streamed of all time
+```{r examples_pt4}
+# Make a plot of the top ten artists/bands you have streamed of all time
 
 most_played_artists(extended_example)
-
 ```
 
 
