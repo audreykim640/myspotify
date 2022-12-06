@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/myspotify)](https://CRAN.R-project.org/package=myspotify)
-
+[![R-CMD-check](https://github.com/audreykim640/myspotify/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/audreykim640/myspotify/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `myspotify` is to to read personal Spotify data and complete
@@ -44,7 +44,7 @@ You can install the development version of myspotify from
 ``` r
 # install.packages("devtools")
 devtools::install_github("audreykim640/myspotify")
-#> Skipping install of 'myspotify' from a github remote, the SHA1 (8c157fd7) has not changed since last install.
+#> Skipping install of 'myspotify' from a github remote, the SHA1 (718a5452) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
