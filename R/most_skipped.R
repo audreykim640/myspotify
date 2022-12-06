@@ -14,6 +14,12 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #' most_skipped(myspotify::extended_example)
 #' most_skipped(myspotify::extended_example, by = "artist")
 most_skipped <- function(df, by = "song"){
+  if(!("data.frame" %in% class(df))){
+    stop(paste("'df' should be data.frame, not"), class(df))
+  }
+  if(!("character" %in% class(by)) || !(by %in% names(df))) {
+    stop(paste("'by' should be character, not"), class(df), "\nTry 'artist' or 'song'.")
+  }
   sorted_table <- df %>%
     filter(reason_end == "fwdbtn") %>% #finds the most number of songs skipped by forward button
     group_by(!! sym(by)) %>%

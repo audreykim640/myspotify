@@ -26,6 +26,23 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #'
 timeseries <- function(df, interval = "month", limits = c(min(df$date), max(df$date)),
                        breaks = "1 year", geom = "bar") {
+
+  # defining helper function
+  # checks for outer of overlap in lists
+  DNE_in <- function(baseline, checkfor) {
+    bools <- checkfor %in% baseline
+    index <- which(bools == FALSE)
+    itemsDNE <- checkfor[index]
+    itemsDNE
+  }
+
+  if (!("data.frame" %in% class(df))){
+    stop(paste("'df' should be data.frame, not"), class(df))
+  } else if (length(DNE_in(colnames(df), c("date"))) != 0) {
+    stop("Column 'date' needed.
+         Try using 'myspotify::read_file()' for data cleaning")
+  }
+
   # df for plotting -- "round" each date to desired interval
   dates <- df %>%
     group_by(date = floor_date(date, interval)) %>%
