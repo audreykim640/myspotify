@@ -340,7 +340,6 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(myspotify)</span></code></pre></div>
 <p>The goal of <code>myspotify</code> is to to read personal Spotify
 data and complete a series of analyses. Spotify is a popular music and
 podcast streaming app globally.</p>
@@ -364,24 +363,24 @@ habits, and has a basic background in (or is willing to learn!) R.</p>
 ggplot2. Tidyverse familiarity is not necessary but would allow for more
 data exploration opportunities.</p>
 <p>You can install the development version of myspotify from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;devtools&#39; is in use and will not be installed</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;audreykim640/myspotify&quot;</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; jsonlite (1.8.3 -&gt; 1.8.4) [CRAN]</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   There is a binary version available but the source version is later:</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          binary source needs_compilation</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; jsonlite  1.8.3  1.8.4              TRUE</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in i.p(...): installation of package &#39;jsonlite&#39; had non-zero exit status</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking for file &#39;C:\Users\AudreyS\AppData\Local\Temp\Rtmp8CU4ed\remotes1adc5652884\audreykim640-myspotify-2d78010/DESCRIPTION&#39; ... OK</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * preparing &#39;myspotify&#39;:</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * building &#39;myspotify_0.0.0.9000.tar.gz&#39;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;myspotify&#39; is in use and will not be installed</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;devtools&#39; is in use and will not be installed</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;audreykim640/myspotify&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; jsonlite (1.8.3 -&gt; 1.8.4) [CRAN]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   There is a binary version available but the source version is later:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          binary source needs_compilation</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; jsonlite  1.8.3  1.8.4              TRUE</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in i.p(...): installation of package &#39;jsonlite&#39; had non-zero exit status</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking for file &#39;C:\Users\AudreyS\AppData\Local\Temp\Rtmp21zp06\remotes5cf82f706805\audreykim640-myspotify-9e459c6/DESCRIPTION&#39; ... OK</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * preparing &#39;myspotify&#39;:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * building &#39;myspotify_0.0.0.9000.tar.gz&#39;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;myspotify&#39; is in use and will not be installed</span></span></code></pre></div>
 </div>
 <div id="what-datasets-are-there" class="section level2">
 <h2>What datasets are there?</h2>
@@ -420,10 +419,10 @@ number.</p></li>
 you can read all of your files at once, with the file paths in quotes,
 separated by commas.</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- read_file(&quot;workspace/my_spotify_data/myData/endsong_0.json&quot;,</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                      &quot;workspace/my_spotify_data/myData/endsong_1.json&quot;,</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                      &quot;workspace/my_spotify_data/myData/endsong_2.json&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- read_file(&quot;workspace/my_spotify_data/myData/endsong_0.json&quot;,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                      &quot;workspace/my_spotify_data/myData/endsong_1.json&quot;,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                      &quot;workspace/my_spotify_data/myData/endsong_2.json&quot;)</span></span></code></pre></div>
 <p><strong>Other</strong> <code>myspotify</code> <strong>functions will
 not run without this step</strong>. The assigned variable
 (<code>my_data</code> in the example above) is what you can use in
@@ -442,19 +441,19 @@ data exploration opportunities.</p>
 <h2>What does the data look like?</h2>
 <p>Here’re the first 5 rows of the <code>extended_example</code>
 dataset:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(extended_example, <span class="dv">5</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         date                time ms_played                song</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2022-03-30 2022-11-17 00:44:38      1965              Sue Me</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2019-11-22 2022-11-17 02:14:01    222951 Cat&#39;s in the Cradle</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2021-11-02 2022-11-17 15:55:07    203444          Homecoming</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2022-07-30 2022-11-17 12:44:44    123949       don&#39;t miss me</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2022-07-17 2022-11-17 14:43:40    159836   abcdefu (angrier)</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              artist                 album reason_start reason_end year</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Sabrina Carpenter        Singular Act I       remote    endplay 2022</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      Harry Chapin Verities &amp; Balderdash    trackdone  trackdone 2019</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3        Kanye West            Graduation    trackdone  trackdone 2021</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Claire Rosinkranz         don’t miss me    trackdone  trackdone 2022</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5             GAYLE     abcdefu (angrier)    trackdone  trackdone 2022</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(extended_example, <span class="dv">5</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         date                time ms_played                song</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2022-03-30 2022-11-17 00:44:38      1965              Sue Me</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2019-11-22 2022-11-17 02:14:01    222951 Cat&#39;s in the Cradle</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2021-11-02 2022-11-17 15:55:07    203444          Homecoming</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2022-07-30 2022-11-17 12:44:44    123949       don&#39;t miss me</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2022-07-17 2022-11-17 14:43:40    159836   abcdefu (angrier)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              artist                 album reason_start reason_end year</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Sabrina Carpenter        Singular Act I       remote    endplay 2022</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      Harry Chapin Verities &amp; Balderdash    trackdone  trackdone 2019</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3        Kanye West            Graduation    trackdone  trackdone 2021</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Claire Rosinkranz         don’t miss me    trackdone  trackdone 2022</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5             GAYLE     abcdefu (angrier)    trackdone  trackdone 2022</span></span></code></pre></div>
 </div>
 <div id="what-can-we-do-with-this-package" class="section level2">
 <h2>What can we do with this package?</h2>

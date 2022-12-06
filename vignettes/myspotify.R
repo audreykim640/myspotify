@@ -4,12 +4,6 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-library(ggplot2)
-library(dplyr)
-
-## ----setup--------------------------------------------------------------------
-library(myspotify)
-
 ## ----loading_packages, include=FALSE------------------------------------------
 library(devtools)
 devtools::install_github("audreykim640/myspotify")

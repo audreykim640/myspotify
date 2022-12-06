@@ -12,14 +12,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-
-library(ggplot2)
-library(dplyr)
 ```
 
-```{r setup}
-library(myspotify)
-```
 
 The goal of `myspotify` is to to read personal Spotify data and complete a series of analyses. Spotify is a popular music and podcast streaming app globally.
 
