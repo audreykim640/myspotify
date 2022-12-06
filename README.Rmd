@@ -92,7 +92,7 @@ ggplot(skipped_songs, aes(x = song, y = skips)) +
   theme(axis.title = element_text(face="bold"))
 ```
 
-```{r examples_pt3}
+```{r examples_pt3} 
 #Search for a specific word or phrase in a song name 
 #Returns a data frame
 
