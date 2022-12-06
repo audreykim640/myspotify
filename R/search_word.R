@@ -8,7 +8,7 @@
 #' @import dplyr
 #'
 #' @examples
-#' search_word(myspotify::extended_example), "love")
+#' search_word(myspotify::extended_example, "love")
 search_word <- function(df, string) {
   if (!("data.frame" %in% class(df)) || (!("character" %in% class(string)))){
     stop("Not a dataframe or string. Please enter the right inputs.")
