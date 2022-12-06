@@ -12,6 +12,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(myspotify)
+library(dplyr)
+library(ggplot2)
 ```
 
 
@@ -26,24 +30,6 @@ Spotify, a popular music streaming platform, offers users the option to download
 Anyone who uses Spotify, wants to learn more about their listening habits, and has a basic background in (or is willing to learn!) R.
 
 “Basic background” might include understanding variable assignment (`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse familiarity is not necessary but would allow for more data exploration opportunities.
-
-
-```{r loading_packages, include=FALSE}
-library(devtools)
-devtools::install_github("audreykim640/myspotify")
-library(dplyr)
-library(ggplot2)
-library(myspotify)
-```
-
-
-You can install the development version of myspotify from [GitHub](https://github.com/) with:
-
-``` {r, message = FALSE}
-install.packages("devtools")
-library(devtools)
-devtools::install_github("audreykim640/myspotify")
-```
 
 ## What datasets are there?
 
@@ -99,12 +85,29 @@ There are functions to look at metadata of how the user interacts with the music
 
 ## Example 1
 
-**What are the user's top artists?**
+```{r examples_pt1}
+artist_trends(extended_example)
+## Example data
+
+# Spotify data by default includes all songs that started playing
+# Say we only want to see artists whose songs we played for at least 2 minutes...
+extended_example %>% 
+  filter_playtime(length = 2) %>% 
+  artist_trends()
+```
+
 
 ## Example 2
 
-**What are the user's most skipped songs?**
-
-## Example 3
-
-**How many songs the user streamed that has the word "hate" in the song title?**
+```{r examples_pt2}
+# Plot the top 5 most skipped songs
+skipped_songs <- extended_example %>% 
+  most_skipped() %>% 
+  arrange(desc(skips)) %>% 
+  head(5)
+  
+ggplot(skipped_songs, aes(x = song, y = skips)) +
+  geom_col(fill= "darkmagenta") +
+  theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
+  theme(axis.title = element_text(face="bold"))
+```
