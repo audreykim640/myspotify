@@ -18,6 +18,7 @@ Dataframe containing only entries that were played for more than or equal to the
 Keep songs based on length of play time
 }
 \examples{
+library(dplyr)
 data <- myspotify::extended_example
 
 two_min <- data \%>\% filter_playtime(length = 2)

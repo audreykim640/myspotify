@@ -27,9 +27,11 @@ plot_times <- function(df, targetTZ = "UTC", years = NULL) {
     itemsDNE
   }
 
-  if(length(DNE_in(colnames(df), c("time", "year"))) != 0) {
+  if (!("data.frame" %in% class(df))){
+    stop(paste("'df' should be data.frame, not"), class(df))
+  } else if (length(DNE_in(colnames(df), c("time", "year"))) != 0) {
     stop("Columns 'time' and 'year' needed.
-         Try using 'myspotify::read_file()' for formatting.")
+         Try using 'myspotify::read_file()' for data cleaning")
   }
 
   if(!is.null(years)) {
