@@ -44,7 +44,7 @@ You can install the development version of myspotify from
 ``` r
 # install.packages("devtools")
 devtools::install_github("audreykim640/myspotify")
-#> Skipping install of 'myspotify' from a github remote, the SHA1 (c862dba2) has not changed since last install.
+#> Skipping install of 'myspotify' from a github remote, the SHA1 (8b4b184e) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
