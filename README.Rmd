@@ -85,9 +85,28 @@ skipped_songs <- extended_example %>%
   head(5)
   
 ggplot(skipped_songs, aes(x = song, y = skips)) +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = -45, hjust = 0))
+  geom_col(fill= "darkmagenta") +
+  theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
+  theme(axis.title = element_text(face="bold"))
 ```
+
+```{r examples pt 3}
+#Search for a specific word or phrase in a song name 
+#Returns a data frame
+
+search_word(extended_example, "Christmas")
+
+#Returns all songs streamed with "Christmas in the title
+
+```
+
+```{r examples pt}
+#Make a plot of the top ten artists/bands you have streamed of all time
+
+most_played_artists(extended_example)
+
+```
+
 
 ## Note about testing
 
