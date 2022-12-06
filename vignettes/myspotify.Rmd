@@ -12,11 +12,96 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(ggplot2)
+library(dplyr)
 ```
 
 ```{r setup}
 library(myspotify)
 ```
 
+The goal of `myspotify` is to to read personal Spotify data and complete a series of analyses. Spotify is a popular music and podcast streaming app globally.
 
-hi
+## What's this package for?
+
+Spotify, a popular music streaming platform, offers users the option to download their personal usage history data. `myspotify` seeks to provide tools to allow users to read and visualize their data to learn more about their listening habits. The idea is somewhat similar to "Spotify Wrapped," a personalized summary that Spotify releases annually, but this can assess history beyond just a year and allows the user to delve into the patterns of the songs they listen to on Spotify.
+
+## Who should use this package?
+
+Anyone who uses Spotify, wants to learn more about their listening habits, and has a basic background in (or is willing to learn!) R.
+
+“Basic background” might include understanding variable assignment (`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse familiarity is not necessary but would allow for more data exploration opportunities.
+
+## How to install this package?
+
+```{r loading packages, include=FALSE}
+library(devtools)
+devtools::install_github("audreykim640/myspotify")
+library(dplyr)
+library(ggplot2)
+library(myspotify)
+```
+
+
+You can install the development version of myspotify from [GitHub](https://github.com/) with:
+
+``` {r, message = FALSE}
+# install.packages("devtools")
+devtools::install_github("audreykim640/myspotify")
+```
+
+## What datasets are there?
+
+-   `extended_example`: example dataset of Spotify listening history from one of the authors
+-  **Load your own!**
+
+To download and load your personal data:
+
+-   Go to the [Spotify website](http://spotify.com) and login.
+
+-   Once logged in, access your account by clicking on your profile picture and name in the upper right hand corner, and selecting Account from the dropdown menu. In the menu on the left hand side of the Account Overview page, select Privacy Settings.
+
+-   At the bottom of this page, under "Download your data," check the box under "Extended streaming history" and UNcheck the box under "Account data."
+
+    -   This package doesn't support analysis of data requested by "Account data." But feel free to download it if you'd like to do independent exploration!
+
+-   Click the button at the bottom of the page that says "Request data," and follow the instructions on the page from there (email confirmation).
+
+-   The data will take up to 30 days to arrive. You'll receive an email that will lead you to download a .Zip file. Unzip/extract the contents. Inside the folder "my_spotify_data," you'll find another folder called "MyData." Inside this folder will be a single file called endsong.json or multiple files named endsong_X.json, where X is a number.
+
+-   Use the file paths to these files with `myspotify::read_file()` to read the data into R. Note that you can read all of your files at once, with the file paths in quotes, separated by commas.
+
+## Who should use this package?
+
+Anyone who uses Spotify, wants to learn more about their listening habits, and has a basic background in (or is willing to learn!) R.
+
+"Basic background" might include understanding variable assignment (`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse familiarity is not necessary but would allow for more data exploration opportunities.
+
+## What does the data look like?
+
+Here're the first 5 rows of the `extended_example` dataset:
+
+```{r}
+head(extended_example, 5)
+```
+
+## What can we do with this package?
+
+We can answer questions like: - What music do I listen to? - By artist, by song, by words in the title of the song. - How do I listen to music? - By time of day, by frequency over the years, by skipping frequency, by which songs were skipped before they were played for at least a minute, two minutes...
+
+This package contains a variety of functions made to analyze a user's extended streaming history by providing descriptive statistics in the forms of tables and plots. A user can use these functions for more in-depth analysis on their own.
+
+There are functions to look at metadata of how the user interacts with the music, such as which songs the time of day (`plot_times()`), or how the user's listening frequency changes over time (`timeseries()`).
+
+## Example 1
+
+**What are the user's top artists?**
+
+## Example 2
+
+**What are the user's most skipped songs?**
+
+## Example 3
+
+**How many songs the user streamed that has the word "hate" in the song title?**
