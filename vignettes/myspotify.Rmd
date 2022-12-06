@@ -72,6 +72,15 @@ To download and load your personal data:
 
 -   Use the file paths to these files with `myspotify::read_file()` to read the data into R. Note that you can read all of your files at once, with the file paths in quotes, separated by commas.
 
+```{r example_data_download}
+# example:
+# my_data <- read_file("workspace/my_spotify_data/myData/endsong_0.json",
+#                      "workspace/my_spotify_data/myData/endsong_1.json",
+#                      "workspace/my_spotify_data/myData/endsong_2.json")
+```
+
+**Other** `myspotify` **functions will not run without this step**. The assigned variable (`my_data` in the example above) is what you can use in conjunction with all of the other functions in the package.
+
 ## Who should use this package?
 
 Anyone who uses Spotify, wants to learn more about their listening habits, and has a basic background in (or is willing to learn!) R.

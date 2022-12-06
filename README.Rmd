@@ -56,43 +56,18 @@ devtools::install_github("audreykim640/myspotify")
 
 -   `extended_example`: example dataset of Spotify listening history from one of the authors
 -   Load your own!
-    -   After loading the package and downloading your data from Spotify (instructions [here](https://github.com/audreykim640/myspotify/blob/main/vignettes/myspotify.Rmd)), run your data through the `read_file()` function:
+    -   After loading the package and downloading your data from Spotify and read the files into R (instructions [here](https://github.com/audreykim640/myspotify/blob/main/vignettes/myspotify.Rmd))
 
-```{r example_data_download}
-# example:
-# my_data <- read_file("workspace/my_spotify_data/myData/endsong_0.json",
-#                      "workspace/my_spotify_data/myData/endsong_1.json",
-#                      "workspace/my_spotify_data/myData/endsong_2.json")
-```
+## Example data
 
-**Other** `myspotify` **functions will not run without this step**. The assigned variable (`my_data` in the example above) is what you can use in conjunction with all of the other functions in the package.
-
-## Example data visualizations
-
-```{r examples_pt1}
-artist_trends(extended_example)
-
-# Spotify data by default includes all songs that started playing
-# Say we only want to see artists whose songs we played for at least 2 minutes...
+```{r example_data}
 extended_example %>% 
-  filter_playtime(length = 1) %>% 
-  artist_trends()
+  head()
 ```
 
-```{r examples_pt2}
-# Plot the top 5 most skipped songs
-skipped_songs <- extended_example %>% 
-  most_skipped() %>% 
-  arrange(desc(skips)) %>% 
-  head(5)
-  
-ggplot(skipped_songs, aes(x = song, y = skips)) +
-  geom_col(fill= "darkmagenta") +
-  theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
-  theme(axis.title = element_text(face="bold"))
-```
+## Example function uses
 
-```{r examples_pt3} 
+```{r examples_pt1} 
 #Search for a specific word or phrase in a song name 
 #Returns a data frame
 
@@ -101,7 +76,7 @@ search_word(extended_example, "Christmas")
 # Returns all songs streamed with "Christmas" in the title
 ```
 
-```{r examples_pt4}
+```{r examples_pt2}
 # Make a plot of the top ten artists/bands you have streamed of all time
 
 most_played_artists(extended_example)
