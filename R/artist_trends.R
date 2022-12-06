@@ -11,7 +11,6 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #' @import ggplot2
 #'
 #' @examples
-
 #' artist_trends(myspotify::extended_example, num = 5)
 #'
 artist_trends <- function(df, num = 3) {
