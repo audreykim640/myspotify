@@ -11,6 +11,9 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #' @examples
 #' play_btn(myspotify::extended_example)
 play_btn <- function(df){
+  if (!("data.frame" %in% class(df))){
+    stop('Not a dataframe. Please enter a dataframe next time. ')
+  }
   sorted_table <- df %>%
     group_by(song, artist) %>%
     filter(reason_start == "playbtn") %>%

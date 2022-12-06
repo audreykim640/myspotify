@@ -14,6 +14,9 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #' @examples
 #' most_played_artists(myspotify::extended_example)
 most_played_artists <- function(df){
+  if (!("data.frame" %in% class(df))){
+    stop('Not a dataframe. Please enter a dataframe next time.')
+  }
   sorted_table <- df %>%
     count(artist) %>%
     arrange(desc(n)) %>%
@@ -25,8 +28,8 @@ most_played_artists <- function(df){
               "! Followed by (the)", second_played, " and ", third_played,  sep=""))
   plot<-ggplot(data=sorted_table, aes(x=reorder(artist,-n), y=n)) +
     geom_bar(stat="identity", fill="coral1") + xlab("Artist") + ylab("Number of Streams of All Time") +
-    theme(axis.text.x = element_text(angle = -90))+
+    theme(axis.text.x = element_text(angle = -90, hjust = 0))+
     theme(axis.title = element_text(face="bold"))
   plot
 }
-# most_played_artist(extended_example)
+
