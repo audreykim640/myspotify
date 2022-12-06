@@ -33,9 +33,8 @@ Anyone who uses Spotify, wants to learn more about their listening habits, and h
 
 “Basic background” might include understanding variable assignment (`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse familiarity is not necessary but would allow for more data exploration opportunities.
 
-## How to install this package?
 
-```{r loading packages, include=FALSE}
+```{r loading_packages, include=FALSE}
 library(devtools)
 devtools::install_github("audreykim640/myspotify")
 library(dplyr)
@@ -47,7 +46,8 @@ library(myspotify)
 You can install the development version of myspotify from [GitHub](https://github.com/) with:
 
 ``` {r, message = FALSE}
-# install.packages("devtools")
+install.packages("devtools")
+library(devtools)
 devtools::install_github("audreykim640/myspotify")
 ```
 
