@@ -16,7 +16,7 @@ The goal of `myspotify` is to to read personal Spotify data and complete
 a series of analyses. Spotify is a popular music and podcast streaming
 app globally.
 
-## Purpose
+## What’s this package for?
 
 Spotify, a popular music streaming platform, offers users the option to
 download their personal usage history data. `myspotify` seeks to provide
@@ -26,17 +26,17 @@ Wrapped,” a personalized summary that Spotify releases annually, but
 this can assess history beyond just a year and allows the user to delve
 into the patterns of the songs they listen to on Spotify.
 
-## Target Audience
+## Who should use this package?
 
-Open to all Spotify users who are interested in some visual breakdowns
-of their listening habits and who are willing to wait a few days to
-receive their data (Account type doesn’t matter). Users can request
-their data by using the Download Your Data tool on the Privacy Settings
-section of their account page or contacting Spotify directly
-(<privacy@spotify.com>). Users will receive an email where they can
-download a ZIP file of their personal data.
+Anyone who uses Spotify, wants to learn more about their listening
+habits, and has a basic background in (or is willing to learn!) R.
 
-## Installation
+“Basic background” might include understanding variable assignment
+(`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse
+familiarity is not necessary but would allow for more data exploration
+opportunities.
+
+## How to install this package?
 
 You can install the development version of myspotify from
 [GitHub](https://github.com/) with:
@@ -44,11 +44,11 @@ You can install the development version of myspotify from
 ``` r
 # install.packages("devtools")
 devtools::install_github("audreykim640/myspotify")
-#> Skipping install of 'myspotify' from a github remote, the SHA1 (50f4b04e) has not changed since last install.
+#> Skipping install of 'myspotify' from a github remote, the SHA1 (8c157fd7) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
-## Datasets
+## What datasets are there?
 
 - `extended_example`: example dataset of Spotify listening history from
   one of the authors
