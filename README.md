@@ -96,11 +96,33 @@ skipped_songs <- extended_example %>%
   head(5)
   
 ggplot(skipped_songs, aes(x = song, y = skips)) +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = -45, hjust = 0))
+  geom_col(fill= "darkmagenta") +
+  theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
+  theme(axis.title = element_text(face="bold"))
 ```
 
 <img src="man/figures/README-examples pt 2-1.png" width="100%" />
+
+``` r
+#Search for a specific word or phrase in a song name 
+#Returns a data frame
+
+search_word(extended_example, "Christmas")
+#>                             song       artist                   album
+#> 1 Cuddle Up, Cozy Down Christmas Dolly Parton A Holly Dolly Christmas
+#> 2                 Last Christmas        Wham!          LAST CHRISTMAS
+
+#Returns all songs streamed with "Christmas in the title
+```
+
+``` r
+#Make a plot of the top ten artists/bands you have streamed of all time
+
+most_played_artists(extended_example)
+#> [1] "Your most played artist of all time is Taylor Swift! Followed by (the)Bee Gees and Olivia Rodrigo"
+```
+
+<img src="man/figures/README-examples pt-1.png" width="100%" />
 
 ## Note about testing
 
