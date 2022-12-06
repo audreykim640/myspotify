@@ -21,7 +21,6 @@ LazyData: true
 Imports: 
     dplyr,
     ggplot2,
-    magrittr,
     jsonlite,
     lubridate,
     stringr,
