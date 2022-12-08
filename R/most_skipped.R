@@ -21,7 +21,7 @@ most_skipped <- function(df, by = "song"){
     stop(paste("'by' should be character, not"), class(df), "\nTry 'artist' or 'song'.")
   }
   sorted_table <- df %>%
-    filter(reason_end == "fwdbtn") %>% #finds the most number of songs skipped by forward button
+    filter(reason_end == "fwdbtn") %>% #finds songs skipped by forward button
     group_by(!! sym(by)) %>%
     count(!! sym(by)) %>%
     arrange(desc(n)) %>%
