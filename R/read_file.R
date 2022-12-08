@@ -14,9 +14,7 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #' @importFrom purrr map_dfr
 #'
 #' @examples
-#'
-#' read_file("https://raw.githubusercontent.com/audreykim640/myspotify/c23bf735f9f9fb150153eb51f161afe9e4414dc9/data-raw/extended_example.json")
-#'
+#' read_file("https://bit.ly/github_json_file")
 read_file <- function(...) {
   single_file <- function(filepath) {
     df <- fromJSON(txt = filepath, flatten = TRUE) %>%

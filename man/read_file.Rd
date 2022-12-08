@@ -16,7 +16,5 @@ dataframe object with select columns
 Read-in Spotify JSON data files
 }
 \examples{
-
-read_file("https://raw.githubusercontent.com/audreykim640/myspotify/c23bf735f9f9fb150153eb51f161afe9e4414dc9/data-raw/extended_example.json")
-
+read_file("https://bit.ly/github_json_file")
 }
