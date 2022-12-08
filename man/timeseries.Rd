@@ -15,7 +15,7 @@ timeseries(
 \arguments{
 \item{df}{Cleaned dataframe (using myspotify::read_file()) of Spotify listening history}
 
-\item{interval}{Time interval to round dates to ('day', 'month', or 'year')}
+\item{interval}{Time interval to round dates to}
 
 \item{limits}{Date-time limits for the x-axis}
 

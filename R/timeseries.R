@@ -3,7 +3,7 @@ globalVariables(c("date","year","time","ms_played","song","artist","album","reas
 #' Plot number of listens over time
 #'
 #' @param df Cleaned dataframe (using myspotify::read_file()) of Spotify listening history
-#' @param interval Time interval to round dates to ('day', 'month', or 'year')
+#' @param interval Time interval to round dates to
 #' @param limits Date-time limits for the x-axis
 #' @param breaks Time interval to set x-axis label breaks at
 #' @param geom Type of plot to produce: can be bar (default) or line
