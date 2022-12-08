@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r loading, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -17,7 +17,6 @@ library(myspotify)
 library(dplyr)
 library(ggplot2)
 ```
-
 
 The goal of `myspotify` is to to read personal Spotify data and complete a series of analyses. Spotify is a popular music and podcast streaming app globally.
 
@@ -29,12 +28,12 @@ Spotify, a popular music streaming platform, offers users the option to download
 
 Anyone who uses Spotify, wants to learn more about their listening habits, and has a basic background in (or is willing to learn!) R.
 
-“Basic background” might include understanding variable assignment (`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse familiarity is not necessary but would allow for more data exploration opportunities.
+"Basic background" might include understanding variable assignment (`<-`) and various Tidyverse packages like dplyr and ggplot2. Tidyverse familiarity is not necessary but would allow for more data exploration opportunities.
 
 ## What datasets are there?
 
 -   `extended_example`: example dataset of Spotify listening history from one of the authors
--  **Load your own!**
+-   **Load your own!**
 
 To download and load your personal data:
 
@@ -50,14 +49,7 @@ To download and load your personal data:
 
 -   The data will take up to 30 days to arrive. You'll receive an email that will lead you to download a .Zip file. Unzip/extract the contents. Inside the folder "my_spotify_data," you'll find another folder called "MyData." Inside this folder will be a single file called endsong.json or multiple files named endsong_X.json, where X is a number.
 
--   Use the file paths to these files with `myspotify::read_file()` to read the data into R. Note that you can read all of your files at once, with the file paths in quotes, separated by commas.
-
-```{r example_data_download}
-# example:
-# my_data <- read_file("workspace/my_spotify_data/myData/endsong_0.json",
-#                      "workspace/my_spotify_data/myData/endsong_1.json",
-#                      "workspace/my_spotify_data/myData/endsong_2.json")
-```
+-   Use the file paths to these files with `myspotify::read_file()` to read the data into R. (See below for further instructions.)
 
 **Other** `myspotify` **functions will not run without this step**. The assigned variable (`my_data` in the example above) is what you can use in conjunction with all of the other functions in the package.
 
@@ -71,9 +63,11 @@ Anyone who uses Spotify, wants to learn more about their listening habits, and h
 
 Here're the first 5 rows of the `extended_example` dataset:
 
-```{r}
+```{r data_peak}
 head(extended_example, 5)
 ```
+
+In this dataset, each row or "case" is one *instance* of a song having been listened to. Each case includes information about this session: what song was played and who it was by, what album the song is in, what time the song was played (determined by when it stopped playing), and more.
 
 ## What can we do with this package?
 
@@ -83,61 +77,124 @@ This package contains a variety of functions made to analyze a user's extended s
 
 There are functions to look at metadata of how the user interacts with the music, such as which songs the time of day (`plot_times()`), or how the user's listening frequency changes over time (`timeseries()`).
 
-## Function: `artist_trends()`
+# Function walk-throughs
 
-```{r examples_pt1}
-artist_trends(extended_example)
-## Example data
+## Data wrangling functions
 
-# Spotify data by default includes all songs that started playing
-# Say we only want to see artists whose songs we played for at least 2 minutes...
-extended_example %>% 
-  filter_playtime(length = 2) %>% 
-  artist_trends()
+### Function: `read_file()`
+
+`read_file()` takes links or filepaths to JSON files and reads them into a dataframe object in R. It can take one or multiple files at a time: note that you can read all of your files at once, with the file paths in quotes, separated by commas. This function is required for using any of the other functions in this package.
+
+Also good to note is the variable assignment at the beginning of the example below (`my_data <-`). The variable (`my_data`) will then be the dataframe that you can feed into the other functions in this package.
+
+```{r example_data_download}
+# example:
+# my_data <- read_file("workspace/my_spotify_data/myData/endsong_0.json",
+#                      "workspace/my_spotify_data/myData/endsong_1.json",
+#                      "workspace/my_spotify_data/myData/endsong_2.json")
 ```
 
+### Function: `filter_playtime()`
 
-## Function: `most_skipped()`
+Spotify data by default includes all songs that started playing, including songs that, for instance, only played for three seconds before getting skipped. `filter_playtime()` allows you to ignore the instances in which a song's playing time hasn't met a threshold that you've decided (given to parameter `length` in minutes).
+
+The dataframe produced from this function is compatible with other functions in this package, including the plotting functions. See an example in the `artist_trends()` function description.
+
+```{r filter_playtime}
+# Selects songs that have played for one OR MORE minutes
+one_min <- filter_playtime(extended_example, length = 1)
+
+# Selects songs that have played for 2.5 OR MORE minutes
+# Can use with dplyr's pipe ( %>% ) function!
+twoandhalf <- extended_example %>% 
+  filter_playtime(length = 2.5)
+```
+
+### Function: `most_skipped()`
+
+`most_skipped()` returns a dataframe with columns `song` and `skips`, where skips counts the number of listening instances that were ended because the user hit the "forward button" while listening, i.e., the user skipped the song.
+
+You can change what the skips are organized by with the parameter `by`, which can take any of the column names. For instance, `by = "artist"` would return a dataframe with the number of times the user has skipped any song by each artist. And `by = "song"` counts the number of skips per song (this is the default).
 
 ```{r examples_pt2}
 # Plot the top 5 most skipped songs
 skipped_songs <- extended_example %>% 
   most_skipped() %>% 
-  arrange(desc(skips)) %>% 
-  head(5)
+  arrange(desc(skips)) %>% # order rows by number of skips, most to least
+  head(5) # select only the top 5 rows
   
+# plotting the dataframe of 5 songs from above
 ggplot(skipped_songs, aes(x = song, y = skips)) +
   geom_col(fill= "darkmagenta") +
   theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
   theme(axis.title = element_text(face="bold"))
 ```
 
-## Function: `most_played_artists()`
-```{r}
-# Make a plot of the top ten artists/bands you have streamed of all time
-# Just enter your dataframe. 
-most_played_artists(extended_example)
-```
+### Function: `play_btn()`
 
-## Function: `play_btn()` 
-```{r}
-# Get a sorted table of the song you pressed the "play button" the most. 
-# The table has columns on the song, artist, and n (number you manually  pressed "play")
-# Just enter your dataframe. 
+`play_btn()` returns a dataframe with columns `song`, `artist`, and `n`, where `n` is the number of instances where the user manually the "play button" to start the song the most. (This likely means that it was the first song played.) Just enter your dataframe!
+
+```{r play_btn}
 play_btn(extended_example)
 ```
 
-## Function: `search_word`
+### Function: `search_word()`
 
-```{r}
-# Search for a specific word or phrase in a song name 
-# You first enter your dataframe followed by the word or phrase of your choice
-# Capitalization does not matter. 
-# Returns a dataframe
+`search_word()` returns a dataframe with columns `song`, `artist` and `album`, whose song names contain a word or phrase of your choice. It takes the dataframe name followed by the word or phrase of your choice (in quotation marks). Capitalization of the word or phrase of your choice does not matter.
 
+```{r search_word}
 #Example word: "You"
 search_word(extended_example, "you")
 
 # Returns all songs streamed with "you" in the title
+```
+
+## Plotting functions
+
+**Note** : all plots produced by functions in this package are ggplot2 objects. Feel free to experiment with adding other ggplot2 elements, such as labels, formatting, etc.!
+
+### Function: `most_played_artists()`
+
+`most_played_artists()` makes a plot of the top ten artists/bands streamed of all time (cumulatively over the years). Just enter a dataframe!
+
+```{r most_played_artist}
+most_played_artists(extended_example)
+```
+
+### Function: `artist_trends()`
+
+`artist_trends()` is similar to `most_played_artists()`, but breaks up the data by year. This function plots only three artists per year by default, and you can can change how many artists are displayed with `num`.
+
+```{r artist_trends}
+# Top three artists for all songs that were played
+artist_trends(extended_example, )
+
+# Say we only want to see artists whose songs we played for at least 2 minutes...
+# But we want to see four artists per year
+extended_example %>% 
+  filter_playtime(length = 2) %>% 
+  artist_trends(num = 4)
+```
+
+### Function: `plot_times()`
+
+`plot_times()` plots the time of day that the user played the song. Aside from the dataframe, there are two optional parameters: `targetTZ` and `years`. `targetTZ` is the timezone in which you would like to plot the times of day, where the default is Coordinated Universal Time. See ideas for inputs [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/timezones.html). In `years`, you can select specific years to plot for.
+
+```{r plot_times}
+plot_times(extended_example, targetTZ = "EST", years = c(2019, 2022))
+
+plot_times(extended_example, targetTZ = "Africa/Tripoli", years = 2020)
+```
+
+### Function: `timeseries()`
+
+`timeseries()` plots a timeseries of the number of songs that the user played over time. It takes the dataframe a number of optional parameters: `interval`, which is the time interval to group listens by, e.g., by week, month, year. `limits`, `breaks`, and `geom` are similar to the terms used in ggplot2.
+
+```{r timeseries}
+t <- c("2021-01-01 00:00:00", "2022-01-01 00:00:00")
+timeseries(extended_example, interval = "month", limits = t, breaks = "3 months")
+
+timeseries(extended_example, interval = "day", breaks = "3 months", geom = "line") +
+  theme(axis.text.x = ggplot2::element_text(angle = 270, vjust = 0.5, hjust=1))
 ```
 
