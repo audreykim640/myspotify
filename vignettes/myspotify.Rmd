@@ -83,7 +83,7 @@ This package contains a variety of functions made to analyze a user's extended s
 
 There are functions to look at metadata of how the user interacts with the music, such as which songs the time of day (`plot_times()`), or how the user's listening frequency changes over time (`timeseries()`).
 
-## Example 1
+## Function: `artist_trends()`
 
 ```{r examples_pt1}
 artist_trends(extended_example)
@@ -97,7 +97,7 @@ extended_example %>%
 ```
 
 
-## Example 2
+## Function: `most_skipped()`
 
 ```{r examples_pt2}
 # Plot the top 5 most skipped songs
@@ -111,3 +111,33 @@ ggplot(skipped_songs, aes(x = song, y = skips)) +
   theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
   theme(axis.title = element_text(face="bold"))
 ```
+
+## Function: `most_played_artists()`
+```{r}
+# Make a plot of the top ten artists/bands you have streamed of all time
+# Just enter your dataframe. 
+most_played_artists(extended_example)
+```
+
+## Function: `play_btn()` 
+```{r}
+# Get a sorted table of the song you pressed the "play button" the most. 
+# The table has columns on the song, artist, and n (number you manually  pressed "play")
+# Just enter your dataframe. 
+play_btn(extended_example)
+```
+
+## Function: `search_word`
+
+```{r}
+# Search for a specific word or phrase in a song name 
+# You first enter your dataframe followed by the word or phrase of your choice
+# Capitalization does not matter. 
+# Returns a dataframe
+
+#Example word: "You"
+search_word(extended_example, "you")
+
+# Returns all songs streamed with "you" in the title
+```
+
