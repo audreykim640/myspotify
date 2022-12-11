@@ -44,9 +44,9 @@ play_btn(extended_example)
 
 ## ----search_word--------------------------------------------------------------
 #Example word: "You"
-search_word(extended_example, "you")
+search_word(extended_example, "Christmas")
 
-# Returns all songs streamed with "you" in the title
+# Returns all songs streamed with "Christmas" in the title
 
 ## ----most_played_artist-------------------------------------------------------
 most_played_artists(extended_example)
