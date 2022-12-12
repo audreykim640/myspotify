@@ -144,9 +144,9 @@ play_btn(extended_example)
 
 ```{r search_word}
 #Example word: "You"
-search_word(extended_example, "you")
+search_word(extended_example, "Christmas")
 
-# Returns all songs streamed with "you" in the title
+# Returns all songs streamed with "Christmas" in the title
 ```
 
 ## Plotting functions
