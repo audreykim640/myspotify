@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# myspotify
+# myspotify <img src="data-raw/Sticker/hex.png" align="right" height=140/>
 
 <!-- badges: start -->
 
@@ -44,7 +44,7 @@ You can install the development version of myspotify from
 ``` r
 # install.packages("devtools")
 devtools::install_github("audreykim640/myspotify")
-#> Skipping install of 'myspotify' from a github remote, the SHA1 (eda8559c) has not changed since last install.
+#> Skipping install of 'myspotify' from a github remote, the SHA1 (c1594c47) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
